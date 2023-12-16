@@ -1,0 +1,162 @@
+<div class="container">
+    <h1>Hola mi primer proyecto</h1>
+
+<h2>{{wellcome}}</h2>
+
+<ul>
+    @for (task of tasks(); track task) {
+  <li>
+            {{task}}
+    </li>
+}
+</ul>
+<hr>
+<h2>{{'Hola'.repeat(4)}}</h2>
+<p>La suma es 3 + 3 es {{3+3}}</p>
+<p>Hola : {{name()}}, mi edad es  {{age}}</p>
+<hr>
+<img [src]="img" height="250px" alt="">
+<input type="text" [value]="name()">
+<button [disabled]="disabled" >Click me</button>
+<p>Person : {{person().name}}</p>
+<hr>
+<button (click)="clickHandler()">Click me</button>
+<button (dblclick)="clickHandler()">double me</button>
+<p>(change)</p>
+<input type="number" [value]="person().age" (change)="changeHanderler($event)">
+
+<p>(keydown)</p>
+<input type="text" [value]="person().name" (keydown)="keydownHanderler($event)">
+
+<p>(keydown)</p>
+<input type="text" [value]="person().name" (keydown.enter)="keydownHanderler($event)">
+
+<hr>
+<h1>Signals</h1>
+<input type="text" [value]="name()" (change)="changeHanderler($event)">
+
+<p>name : {{name() | uppercase}}</p>
+
+<hr>
+<p>Lista </p>
+<ul>
+  <p>Total : {{tasks().length}}</p>
+  @for (task of tasks(); track task; let i = $index) {
+  <li>
+          {{ i }} - {{task}}
+  </li>
+}
+</ul>
+
+<ul>
+@for (task of tasks(); track task; let i = $index) {
+  <li>{{i}} - {{task}}</li>
+}@empty {
+  <li><strong>la lista esta en vacio</strong></li>
+}
+</ul>
+
+<hr>
+<input type="number" [value]="person().age" (change)="changeAge($event)">
+@if ( 1 !== 1) {
+<div>
+  My Content
+</div>
+}
+
+@if (name() === 'Juanito') {
+<div>
+  Soy Jaime
+</div>
+}
+
+@if(name() === 'Juanito'){
+  <div>Soy Juanito XXX</div>
+}
+
+
+
+@if (person().name === 'Juanito' && person().age > 18) {
+<div>
+  Soy Juanito y soy mayor a 18
+</div>
+} @else {
+
+ Soy juanito y soy menor de 18
+
+}
+
+
+
+<h2>If else new</h2>
+
+@if (person().name === 'Juanito' && person().age > 18) {
+  <div>Soy Juanito y soy mayor a 18 XXX</div>
+}@else {
+  <div> Soy juanito y soy menor de 18 XXX</div>
+}
+
+
+<hr>
+
+<input type="text" [value]="person().name" (change)="changeName($event)">
+<div>
+@switch (person().name) {
+  @case ('Nicolas') {
+  <p>Yo soy Nicolas</p>
+}
+  @case ('Juanito') {
+  <p>Yo soy Juanito</p>
+}
+  @default {
+  <p>No existo</p>
+}
+}
+</div>
+
+<hr>
+
+<input type="color" [formControl]="colorCtrl">
+
+<p>color : {{colorCtrl.value}}</p>
+
+<svg>
+  <g>
+    <rect x="0" y="0" height="100" width="100" [attr.fill]="colorCtrl.value" />
+  </g>
+</svg>
+
+<input type="number" [formControl]="widthCtrl">
+<span class="box" [style.width.px]="widthCtrl.value"></span>
+
+<hr>
+
+<input type="text" [formControl]="nameCtrl"><br>
+@if (nameCtrl.invalid && nameCtrl.touched) {
+<span class="message_error" >Nombre invalido </span>
+}
+
+<p>
+  <input type="text" name="" id="">
+</p>
+
+<h2>New Switch</h2>
+
+<div>
+  @switch (person().name) {
+    @case ('Nicolas') {
+      <p>Soy Nicolas</p>
+    }
+
+    @case ('Juanito') {
+      <p>Soy Juanito</p>
+    }
+
+    @default {
+      <p>No existo</p>
+    }
+
+  }
+</div>
+
+</div>

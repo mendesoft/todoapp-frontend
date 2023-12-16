@@ -1,0 +1,14 @@
+.container {
+    padding:3rem;
+}
+
+.box {
+  height: 10px;
+  display: block;
+  background: red;
+
+}
+.message_error {
+    background-color: red;
+    color: white;
+}
