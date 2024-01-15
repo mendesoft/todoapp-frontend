@@ -1,0 +1,21 @@
+<div class="main">
+    <h1>{{title | uppercase}}</h1>
+    <hr>
+    <h2>Estructura de control</h2>
+    <ul>
+      @for (task of tasks(); track $index) {
+          <li>{{$index + 1}} - {{task.name}}</li>
+      }@empty {
+       <span>No hay datos</span>
+      }
+   </ul>
+   <hr>
+
+   <h2>Eventos</h2>
+   <h3>Si le doy enter</h3>
+   <label>Escribe tu nombre : </label>
+   <input type="text"  [value]="name()" (keydown.enter)="keydownHandler($event)" />
+   <span>{{name()}}</span>
+   <h3>Cuando escriba</h3>
+   <input type="text" [value]="name()" (keydown)="keydownHandler($event)">
+</div>
